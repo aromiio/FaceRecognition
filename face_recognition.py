@@ -12,7 +12,7 @@ FACE_SIZE = (200, 200)
 # LBPH predict() returns a distance: lower is generally a closer match.
 # Tune this threshold using tests with registered and unregistered people.
 DISTANCE_THRESHOLD = 70.0
-SCAN_FRAMES = 15
+SCAN_FRAMES = 5
 MAX_MISSING_FRAMES = 12
 
 # OpenCV uses BGR color order.
@@ -118,6 +118,8 @@ def main():
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
     cap.set(cv2.CAP_PROP_FPS, 30)
+
+    tracks = []
 
     try:
         while True:

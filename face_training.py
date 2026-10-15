@@ -50,7 +50,12 @@ def main():
         )
 
     print(f"Training LBPH dengan {len(faces)} gambar...")
-    recognizer = cv2.face.LBPHFaceRecognizer_create()
+    recognizer = cv2.face.LBPHFaceRecognizer_create(
+    radius=2,
+    neighbors=8,
+    grid_x=8,
+    grid_y=8
+    )
     recognizer.train(faces, np.array(ids, dtype=np.int32))
     recognizer.write(MODEL_FILE)
     print("Training selesai.")
